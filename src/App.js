@@ -1,7 +1,8 @@
 import Container from './components/container';
 import AppBar from './components/AppBar';
 import HomeView from './views/HomeView';
-import registerForm from './components/registerForm';
+import RegisterForm from './components/registerForm';
+import LoginForm from './components/loginForm';
 import Phonebook from './Phonebook';
 import { Switch } from 'react-router';
 import PublicRoute from './components/routes/PublicRoute';
@@ -14,12 +15,17 @@ function App() {
         <PublicRoute path="/" exact component={HomeView} />
         <PublicRoute
           path="/register"
-          component={registerForm}
+          component={RegisterForm}
+          restricted
+          redirectTo="/contacts"
+        />
+        <PublicRoute
+          path="/login"
+          component={LoginForm}
           restricted
           redirectTo="/contacts"
         />
       </Switch>
-      <Phonebook />
     </Container>
   );
 }

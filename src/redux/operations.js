@@ -21,7 +21,16 @@ export const register = credential => dispatch => {
     })
     .catch(error => dispatch(actions.registerError(error.message)));
 };
-
+export const logIn = credential => dispatch => {
+  dispatch(actions.loginRequest());
+  axios
+    .post('/users/login', credential)
+    .then(res => {
+      token.set(res.data.token);
+      dispatch(actions.loginSuccess(res.data));
+    })
+    .catch(error => dispatch(actions.loginError(error.message)));
+};
 export const fetchContacts = () => async dispatch => {
   dispatch(actions.fetchContactsRequest());
   await axios

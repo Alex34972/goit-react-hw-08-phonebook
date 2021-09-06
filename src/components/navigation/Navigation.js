@@ -5,6 +5,14 @@ const Navigation = () => {
     <nav>
       <NavLink
         exact
+        to="/"
+        className={s.NavLink}
+        activeClassName={s.activeLink}
+      >
+        Home
+      </NavLink>
+      <NavLink
+        exact
         to="/register"
         className={s.NavLink}
         activeClassName={s.activeLink}
