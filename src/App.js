@@ -6,6 +6,7 @@ import LoginForm from './components/loginForm';
 import Phonebook from './Phonebook';
 import { Switch } from 'react-router';
 import PublicRoute from './components/routes/PublicRoute';
+import PrivateRoute from './components/routes/PrivateRoute';
 
 function App() {
   return (
@@ -24,6 +25,11 @@ function App() {
           component={LoginForm}
           restricted
           redirectTo="/contacts"
+        />
+        <PrivateRoute
+          path="/contacts"
+          component={Phonebook}
+          redirectTo="/login"
         />
       </Switch>
     </Container>

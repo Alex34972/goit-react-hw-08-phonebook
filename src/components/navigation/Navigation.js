@@ -1,27 +1,19 @@
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import s from './Navigation.module.css';
+import * as selectors from '../../redux/selectors';
 const Navigation = () => {
+  const isAuthenticated = useSelector(selectors.isAuthenticated);
   return (
-    <nav>
-      <NavLink
-        exact
-        to="/"
-        className={s.NavLink}
-        activeClassName={s.activeLink}
-      >
-        Home
+    <nav className={s.mainNav}>
+      <NavLink to="/" exact className={s.link} activeClassName="activeLink">
+        Main
       </NavLink>
-      <NavLink
-        exact
-        to="/register"
-        className={s.NavLink}
-        activeClassName={s.activeLink}
-      >
-        Register
-      </NavLink>
-      <NavLink to="/login" className={s.NavLink} activeClassName={s.activeLink}>
-        Log In
-      </NavLink>
+      {isAuthenticated && (
+        <NavLink to="/contacts" className={s.link} activeClassName="activeLink">
+          Contacts
+        </NavLink>
+      )}
     </nav>
   );
 };
