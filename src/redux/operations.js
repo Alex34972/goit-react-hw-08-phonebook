@@ -1,7 +1,7 @@
 import axios from 'axios';
 import * as actions from './actions';
 
-axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
+axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
 
 export const token = {
   set(token) {
@@ -11,6 +11,7 @@ export const token = {
     axios.defaults.headers.common['Authorization'] = ``;
   },
 };
+
 export const register = credential => dispatch => {
   dispatch(actions.registerRequest());
   axios
@@ -21,6 +22,7 @@ export const register = credential => dispatch => {
     })
     .catch(error => dispatch(actions.registerError(error.message)));
 };
+
 export const logIn = credential => dispatch => {
   dispatch(actions.loginRequest());
   axios
@@ -39,6 +41,31 @@ export const fetchContacts = () => async dispatch => {
     .catch(error => dispatch(actions.fetchContactsError(error.message)));
 };
 
+export const logOut = () => dispatch => {
+  dispatch(actions.logoutRequest());
+  axios
+    .post('/users/logout')
+    .then(res => {
+      token.unset();
+      dispatch(actions.logoutSuccess(res.data));
+    })
+    .catch(error => dispatch(actions.logoutError(error.message)));
+};
+
+export const getCurrentUser = () => (dispatch, getState) => {
+  const {
+    auth: { token: persistedToken },
+  } = getState();
+  if (!persistedToken) return;
+  token.set(persistedToken);
+  dispatch(actions.getCurrentUserRequest());
+  axios
+    .get('/users/current')
+    .then(res => {
+      dispatch(actions.getCurrentUserSuccess(res.data));
+    })
+    .catch(error => dispatch(actions.getCurrentUserError(error.message)));
+};
 export const addContact = data => dispatch => {
   dispatch(actions.addContactsRequest());
   axios
