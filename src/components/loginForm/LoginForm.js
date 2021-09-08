@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { logIn } from '../../redux/operations';
-
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import s from './LoginForm.module.css';
+
 function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -30,31 +33,30 @@ function LoginForm() {
     setPassword('');
   };
   return (
-    <>
-      <h1 className="logTitle">Login Page</h1>
-      <form className={s.loginForm} autoComplete="off" onSubmit={handleSubmit}>
-        <input
-          type="email"
-          name="email"
-          value={email}
-          onChange={handleChange}
-          className={s.textField}
-          label="E-mail"
-        />
+    <Form className={s.loginForm} autoComplete="off" onSubmit={handleSubmit}>
+      <Form.Control
+        type="email"
+        name="email"
+        placeholder="Enter email"
+        value={email}
+        onChange={handleChange}
+        className={s.textField}
+        label="E-mail"
+      />
 
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handleChange}
-          className={s.textField}
-          label="Password"
-        />
-        <button className={s.button} type="submit">
-          Login
-        </button>
-      </form>
-    </>
+      <Form.Control
+        type="password"
+        name="password"
+        placeholder="Password"
+        value={password}
+        onChange={handleChange}
+        className={s.textField}
+        label="Password"
+      />
+      <Button className={s.button} type="submit">
+        Login
+      </Button>
+    </Form>
   );
 }
 export default LoginForm;

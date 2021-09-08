@@ -1,0 +1,14 @@
+.loginForm {
+  margin: 20px auto;
+  border: 1px solid tomato;
+  border-radius: 4px;
+  width: 400px;
+  height: 200px;
+  background-color: rgb(238, 148, 148);
+
+  text-align: center;
+}
+.textField {
+  width: 320px;
+  margin: 20px auto;
+}

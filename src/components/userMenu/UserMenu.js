@@ -1,6 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import * as selectors from '../../redux/selectors';
 import { logOut } from '../../redux/operations';
+
+import { ImEnvelop } from 'react-icons/im';
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import s from './UserMenu.module.css';
 function UserMenu() {
   const name = useSelector(selectors.getUserName);
@@ -10,17 +14,17 @@ function UserMenu() {
 
   return (
     <div className={s.userMenu}>
-      <img alt="" width="32" className="userAvatar" />
-      <span className="userName">
-        Welcome, <b>{name}</b> {` [${email}]`}
+      <span className={s.userName}>
+        Welcome, <b>{name}</b>
       </span>
-      <button
-        type="button"
-        onClick={() => dispatch(logOut())}
-        className={s.button}
-      >
+      <span className={s.usermail}>
+        <ImEnvelop className={s.icon} />
+        {`${email}`}
+      </span>
+
+      <Button type="button" onClick={() => dispatch(logOut())}>
         Logout
-      </button>
+      </Button>
     </div>
   );
 }

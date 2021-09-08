@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/operations';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import s from './RegisterForm.module.css';
 
 function RegisterForm() {
@@ -36,37 +39,35 @@ function RegisterForm() {
     setPassword('');
   };
   return (
-    <>
-      <h1 className="regTitle">Register Page </h1>
-
-      <form className="regForm" autoComplete="off" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="name"
-          value={name}
-          onChange={handleChange}
-          className={s.textField}
-        />
-
-        <input
-          type="email"
-          name="email"
-          value={email}
-          onChange={handleChange}
-          className={s.textField}
-        />
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handleChange}
-          className={s.textField}
-        />
-        <button className={s.button} type="submit">
-          Register
-        </button>
-      </form>
-    </>
+    <Form className={s.registForm} autoComplete="off" onSubmit={handleSubmit}>
+      <Form.Control
+        type="text"
+        name="name"
+        placeholder="Username"
+        value={name}
+        onChange={handleChange}
+        className={s.textField}
+      />
+      <Form.Control
+        type="email"
+        name="email"
+        placeholder="Enter email"
+        value={email}
+        onChange={handleChange}
+        className={s.textField}
+      />
+      <Form.Control
+        type="password"
+        name="password"
+        placeholder="Password"
+        value={password}
+        onChange={handleChange}
+        className={s.textField}
+      />
+      <Button className={s.button} type="submit">
+        Register
+      </Button>
+    </Form>
   );
 }
 export default RegisterForm;

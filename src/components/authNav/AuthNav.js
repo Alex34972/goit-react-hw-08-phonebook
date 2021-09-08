@@ -1,13 +1,15 @@
 import { NavLink } from 'react-router-dom';
-
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import s from './AuthNav.module.css';
 function AuthNav() {
   return (
     <div className="authNav">
-      <NavLink to="/register" className="link" activeClassName="activeLink">
-        Register
+      <NavLink to="/register" className={s.linkAuth}>
+        <Button size="sm">Register</Button>
       </NavLink>
-      <NavLink to="/login" className="link" activeClassName="activeLink">
-        Log In
+      <NavLink to="/login" className={s.linkAuth}>
+        <Button size="sm"> Login</Button>
       </NavLink>
     </div>
   );

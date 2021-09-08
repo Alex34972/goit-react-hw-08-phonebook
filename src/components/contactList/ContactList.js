@@ -3,6 +3,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { deleteContact, fetchContacts } from '../../redux/operations';
 import { getContactList } from '../../redux/selectors';
 import { useEffect } from 'react';
+import { IoIosCall } from 'react-icons/io';
+import { BsFillTrashFill } from 'react-icons/bs';
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import s from './ContactList.module.css';
 
 const ContactList = () => {
@@ -14,20 +18,23 @@ const ContactList = () => {
   }, [dispatch]);
 
   return (
-    <ul className={s.ContactList}>
+    <ul>
       {contacts.map(
         ({ id, name, number }) =>
           name.length > 0 &&
           number.length > 0 && (
             <li className={s.contact} key={id}>
+              <IoIosCall className={s.icons} />
               {name}: {number}
-              <button
+              <Button
+                size="sm"
+                variant="danger"
                 className={s.contactBtn}
                 type="button"
                 onClick={() => dispatch(deleteContact(id))}
               >
-                Delete
-              </button>
+                <BsFillTrashFill />
+              </Button>
             </li>
           ),
       )}

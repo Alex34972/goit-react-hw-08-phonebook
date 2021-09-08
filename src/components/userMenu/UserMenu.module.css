@@ -1,0 +1,15 @@
+.userName {
+  margin-right: 15px;
+}
+.icon {
+  margin-right: 3px;
+}
+.usermail {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+}
+.userMenu {
+  display: flex;
+  align-items: center;
+}

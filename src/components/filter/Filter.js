@@ -1,5 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { filterContacts } from '../../redux/actions';
+import Form from 'react-bootstrap/Form';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import s from './Filter.module.css';
 
 const Filter = () => {
@@ -7,9 +9,9 @@ const Filter = () => {
   const onFilter = event => dispatch(filterContacts(event.target.value));
 
   return (
-    <label className={s.filter}>
-      Find contacts by name
-      <input
+    <Form className={s.filterBox}>
+      <Form.Label className={s.filter}>Find contacts by name :</Form.Label>
+      <Form.Control
         className={s.filterInput}
         type="text"
         name="filter"
@@ -18,7 +20,7 @@ const Filter = () => {
         required
         onChange={onFilter}
       />
-    </label>
+    </Form>
   );
 };
 
