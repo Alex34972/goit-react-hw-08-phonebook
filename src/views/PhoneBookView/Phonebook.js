@@ -7,7 +7,7 @@ import { getContactsLoading, getUserName } from '../../redux/selectors';
 
 export default function Phonebook() {
   const name = useSelector(getUserName);
-  const isLoading = useSelector(state => getContactsLoading(state));
+  const isLoading = useSelector(getContactsLoading);
   return (
     <div>
       <h2>

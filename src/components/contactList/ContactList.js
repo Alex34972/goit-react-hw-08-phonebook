@@ -6,7 +6,6 @@ import { useEffect } from 'react';
 import { IoIosCall } from 'react-icons/io';
 import { BsFillTrashFill } from 'react-icons/bs';
 import Button from 'react-bootstrap/Button';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import s from './ContactList.module.css';
 
 const ContactList = () => {

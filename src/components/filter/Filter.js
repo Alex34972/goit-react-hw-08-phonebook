@@ -1,7 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { filterContacts } from '../../redux/actions';
 import Form from 'react-bootstrap/Form';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import s from './Filter.module.css';
 
 const Filter = () => {

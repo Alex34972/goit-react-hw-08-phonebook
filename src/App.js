@@ -5,6 +5,7 @@ import Loader from './components/loader/Loader';
 import { Switch } from 'react-router';
 import PublicRoute from './components/routes/PublicRoute';
 import PrivateRoute from './components/routes/PrivateRoute';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const HomeView = lazy(() => import('./views/HomeView'));
 const RegisterView = lazy(() => import('./views/RegisterView'));

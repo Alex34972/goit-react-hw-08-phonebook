@@ -1,11 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import * as selectors from '../../redux/selectors';
 import { logOut } from '../../redux/operations';
-
 import { ImEnvelop } from 'react-icons/im';
 import Button from 'react-bootstrap/Button';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import s from './UserMenu.module.css';
+
 function UserMenu() {
   const name = useSelector(selectors.getUserName);
   const email = useSelector(selectors.getUserEmail);
@@ -22,7 +21,7 @@ function UserMenu() {
         {`${email}`}
       </span>
 
-      <Button type="button" onClick={() => dispatch(logOut())}>
+      <Button type="button" size="sm" onClick={() => dispatch(logOut())}>
         Logout
       </Button>
     </div>

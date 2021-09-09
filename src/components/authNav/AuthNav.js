@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 import s from './AuthNav.module.css';
 function AuthNav() {
   return (

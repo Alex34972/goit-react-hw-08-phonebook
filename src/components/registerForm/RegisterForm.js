@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { register } from '../../redux/operations';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import s from './RegisterForm.module.css';
 
 function RegisterForm() {
